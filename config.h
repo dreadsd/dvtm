@@ -12,12 +12,12 @@
  */
 
 enum {
-	BLUE,
+	WHITE,
 	MAGENTA,
 };
 
 static Color colors[] = {
-	[BLUE] = { .fg = COLOR_BLUE, .bg = -1, },
+	[WHITE] = { .fg = COLOR_WHITE, .bg = -1, },
 	[MAGENTA] = { .fg = COLOR_MAGENTA, .bg = -1, },
 };
 
@@ -25,7 +25,7 @@ static Color colors[] = {
 /* curses attributes for the currently focused window */
 #define SELECTED_ATTR   (COLOR(MAGENTA) | A_BOLD)
 /* curses attributes for normal (not selected) windows */
-#define NORMAL_ATTR     (COLOR(BLUE) | A_BOLD)
+#define NORMAL_ATTR     COLOR(WHITE)
 /* curses attributes for a window with pending urgent flag */
 #define URGENT_ATTR     NORMAL_ATTR
 /* curses attributes for the status bar */
@@ -48,7 +48,7 @@ static Color colors[] = {
 /* curses attributes for the currently selected tags */
 #define TAG_SEL      (COLOR(MAGENTA) | A_BOLD)
 /* curses attributes for not selected tags which contain no windows */
-#define TAG_NORMAL   (COLOR(BLUE) | A_BOLD)
+#define TAG_NORMAL   COLOR(WHITE)
 /* curses attributes for not selected tags which contain windows */
 #define TAG_OCCUPIED (COLOR(MAGENTA) | A_BOLD)
 /* curses attributes for not selected tags which with urgent windows */
@@ -140,7 +140,7 @@ static KeyBinding bindings[] = {
 };
 
 static const ColorRule colorrules[] = {
-	{ "", A_NORMAL, &colors[BLUE] }, /* default */
+	{ "", A_NORMAL, &colors[WHITE] }, /* default */
 };
 
 /* possible values for the mouse buttons are listed below:
